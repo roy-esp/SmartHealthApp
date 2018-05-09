@@ -109,7 +109,7 @@ public class AnalysedMovements extends Fragment {
         mRecyclerView.setAdapter(textAdapter);
 
 
-        stringList.add("Day 1");
+        stringList.add("Day 1 output.txt");
         stringList.add("Day 1.2");
         stringList.add("Day 2");
         stringList.add("Day x");

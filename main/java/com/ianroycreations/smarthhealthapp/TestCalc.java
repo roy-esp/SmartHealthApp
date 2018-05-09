@@ -1,6 +1,10 @@
 package com.ianroycreations.smarthhealthapp;
 
+import android.os.Environment;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -23,7 +27,9 @@ public class TestCalc {
 		ArrayList<String> arraylabel=csvmanagerlab.csvLabelToArray();
 		
 		//PrintWriter writer = new PrintWriter("C:\\Users\\Roy\\Documents\\tfg\\calculations\\prueba data\\S11\\features_S11.csv");
-		PrintWriter writer = new PrintWriter("/storage/emulated/0/Tfg/features.csv");
+		//TODO:check if its correct
+		File filefeaturesplain=new File(Environment.getExternalStorageDirectory(),"/Tfg/features.csv");
+		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filefeaturesplain)));
 
 		//Generate CSV files x,y,z separated feature csv files
 		Calculations calculations=new Calculations(arraylabel,arraysensor,writer);

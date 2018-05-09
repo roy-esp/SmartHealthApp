@@ -10,4 +10,21 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="activities">
+        <item>Walking</item>
+        <item>Running</item>
+        <item>Shuffling</item>
+        <item>Ascending stairs</item>
+        <item>Descending stairs</item>
+        <item>Standing</item>
+        <item>Sitting</item>
+        <item>Lying</item>
+        <item>Transition</item>
+        <item>Bending</item>
+        <item>Picking</item>
+        <item>Cycling (sit)</item>
+        <item>Cycling (stand)</item>
+        <item>Heel drop</item>
+    </string-array>
+
 </resources>

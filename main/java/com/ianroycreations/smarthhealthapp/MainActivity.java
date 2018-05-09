@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         checkLogged();
 
+
+
         /*
         MenuItem menuItem=(MenuItem) findViewById(R.id.nav_analysed);
         menuItem.setChecked(true);
@@ -186,6 +188,12 @@ public class MainActivity extends AppCompatActivity
     private void setRecyclerView(){
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setVisibility(View.VISIBLE);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewDataFile();
+            }
+        });
 
         Fragment analaysedMovements=new AnalysedMovements();
         FragmentManager fragmentManager=getFragmentManager();
@@ -198,6 +206,10 @@ public class MainActivity extends AppCompatActivity
         if (opr.isDone()) {
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
+            setContentView(R.layout.activity_main);
+            makeDrawer();
+            buttonPlus();
+            setRecyclerView();
         } else {
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -222,7 +234,7 @@ public class MainActivity extends AppCompatActivity
 
             urlFoto = account.getPhotoUrl();
 
-            //TODO: if logged-->analysed movements (DONE?):
+
             setRecyclerView();
 
         } else {
@@ -271,7 +283,7 @@ public class MainActivity extends AppCompatActivity
         if (menuId == R.id.nav_analysed) {
             setRecyclerView();
         } else if (menuId == R.id.nav_record) {
-
+            pushRecord();
         }  else if (menuId == R.id.nav_manage) {
 
         } else if (menuId == R.id.nav_share) {
@@ -283,6 +295,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void pushRecord() {
+        Fragment record= new Record();
+        FragmentManager fragmentManager=getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.relativeLayoutMain, record).commit();
     }
 
     private void goLogInScreen() {

@@ -111,6 +111,8 @@ public class AddFile extends Fragment {
         buttonAnalyse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
+                    //TODO:Do it on background
+                    //TODO:Show process
                     analyse();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -138,6 +140,7 @@ public class AddFile extends Fragment {
 
     private void fileManager() {
         //Grant permissions in addition to manifest
+        //TODO: if someone fails may be related of the mobile forgetting these permisions
         if(Build.VERSION.SDK_INT>22){
             requestPermissions(new String[] {"android.permission.READ_EXTERNAL_STORAGE","android.permission.WRITE_EXTERNAL_STORAGE"}, 1);
         }
